@@ -60,7 +60,7 @@ export default class UserManagementManagement extends Component{
     }
 
     handlerSubmitUser(user){
-        if(!user.userName.S){
+        if(!user.userName){
             return alert('User Name is required!')
         }
 
