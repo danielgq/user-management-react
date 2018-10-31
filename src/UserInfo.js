@@ -8,7 +8,6 @@ export default class UserInfo extends Component{
         }
     }
 
-
     render(){
         return(
             <div className="user">
