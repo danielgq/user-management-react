@@ -12,28 +12,28 @@ export default class UserInput extends Component{
         }
     }
 
-    handleUserNameChange(event){
+    handleUserNameChange = (event) => {
         this.setState({
             userName: event.target.value
         })
     }
-    handlerAgeChange(event){
+    handlerAgeChange = (event) => {
         this.setState({
             age: event.target.value
         })
     }
-    handleGenderChange(event){
+    handleGenderChange = (event) => {
         this.setState({
             gender: event.target.value
         })
     }
-    handlePasswordChange(event){
+    handlePasswordChange = (event) => {
         this.setState({
             password: event.target.value
         })
     }
 
-    handleSubmit(){
+    handleSubmit = () => {
         if(this.props.onSubmit){
             this.props.onSubmit(this.state)
         }
@@ -51,30 +51,30 @@ export default class UserInput extends Component{
                 <div className = "user-field">
                     <span className = "user-field-name">User Name</span>
                     <div className = "user-field-input">
-                        <input  value={this.state.userName} onChange={this.handleUserNameChange.bind(this)}/>
+                        <input  value={this.state.userName} onChange={this.handleUserNameChange}/>
                     </div>
                 </div>
                 <div className = "user-field">
                     <span className = "user-field-name">Age</span>
                     <div className = "user-field-input">
-                        <input value={this.state.age} onChange={this.handlerAgeChange.bind(this)}/>
+                        <input value={this.state.age} onChange={this.handlerAgeChange}/>
                     </div>
                 </div>
                 <div className = "user-field">
                     <span className = "user-field-name">Gender</span>
                     <div className = "user-field-input">
-                        <input value={this.state.gender} onChange={this.handleGenderChange.bind(this)}/>
+                        <input value={this.state.gender} onChange={this.handleGenderChange}/>
                     </div>
                 </div>
                 <div className = "user-field">
                     <span className = "user-field-name">Password</span>
                     <div className = "user-field-input">
-                        <input value={this.state.password} onChange={this.handlePasswordChange.bind(this)}/>
+                        <input value={this.state.password} onChange={this.handlePasswordChange}/>
                     </div>
                 </div>
 
                 <div className = "user-field-button">
-                    <button onClick={this.handleSubmit.bind(this)}>Add</button>
+                    <button onClick={this.handleSubmit}>Add</button>
                 </div>
             </div>
 

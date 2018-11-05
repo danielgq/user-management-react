@@ -16,7 +16,7 @@ export default class UserManagementManagement extends Component{
         this.getUserList()
     }
 
-    getUserList(){
+    getUserList = () => {
 
 /*        $.get('https://9qw4ir47zj.execute-api.ap-northeast-1.amazonaws.com/demo/getuserlist', function (result) {
             let users = result.Items
@@ -31,7 +31,7 @@ export default class UserManagementManagement extends Component{
         })
     }
 
-    saveUser(user){
+    saveUser = (user) => {
         let params = {
             "userName": user.userName,
             "age": user.age,
@@ -46,7 +46,7 @@ export default class UserManagementManagement extends Component{
 
     }
 
-    deleteUser(userName){
+    deleteUser = (userName) => {
         let params = {
             "userName": userName
         }
@@ -59,7 +59,7 @@ export default class UserManagementManagement extends Component{
         )
     }
 
-    handlerSubmitUser(user){
+    handlerSubmitUser = (user) => {
         if(!user.userName){
             return alert('User Name is required!')
         }
@@ -86,7 +86,7 @@ export default class UserManagementManagement extends Component{
     }
 
 
-    handlerDeleteUser(index){
+    handlerDeleteUser = (index) => {
         let users = this.state.users
         let user = users[index]
         users.splice(index,1)
@@ -97,8 +97,8 @@ export default class UserManagementManagement extends Component{
     render(){
         return(
             <div className="wrapper">
-                <UserInput onSubmit = {this.handlerSubmitUser.bind(this)}/>
-                <UserList users = {this.state.users} onDeleteUser = {this.handlerDeleteUser.bind(this)}/>
+                <UserInput onSubmit = {this.handlerSubmitUser}/>
+                <UserList users = {this.state.users} onDeleteUser = {this.handlerDeleteUser}/>
             </div>
         )
     }

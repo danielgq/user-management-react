@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import UserEdit from './UserEdit'
 
 export default class UserInfo extends Component{
 
-    handlerDeleteUser(){
+    handlerDeleteUser = () => {
         if(this.props.onDeleteUser){
             this.props.onDeleteUser(this.props.index)
         }
@@ -23,9 +24,13 @@ export default class UserInfo extends Component{
                 <div className="user-user">
                     <span className="user-username">{this.props.user.password.S} </span> |
                 </div>
-                <div className="user-delete">
-                    <span onClick={this.handlerDeleteUser.bind(this)} >Delete</span>
+                <div >
+                    <button className="ant-btn ant-btn-primary" onClick={this.handlerDeleteUser} >Delete</button>
                 </div>
+                <div >
+                    <UserEdit user={this.props.user}/>
+                </div>
+
             </div>
         )
     }

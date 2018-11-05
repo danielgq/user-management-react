@@ -7,7 +7,7 @@ export default class UserList  extends Component{
         users : []
     }
 
-    handleDeleteUser(index){
+    handleDeleteUser = (index) => {
         if(this.props.onDeleteUser){
             this.props.onDeleteUser(index)
         }
@@ -17,7 +17,7 @@ export default class UserList  extends Component{
 
         return(
             <div>
-                {this.props.users.map((user,i) => <UserInfo user = {user} key = {i} index = {i} onDeleteUser = {this.handleDeleteUser.bind(this)}/> )}
+                {this.props.users.map((user,i) => <UserInfo user = {user} key = {i} index = {i} onDeleteUser = {this.handleDeleteUser}/> )}
             </div>
 
         )
