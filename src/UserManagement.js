@@ -12,7 +12,7 @@ export default class UserManagementManagement extends Component{
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getUserList()
     }
 

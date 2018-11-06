@@ -5,12 +5,19 @@ import 'antd/dist/antd.css';
 export default class UserEdit extends Component {
     state = {
         userName: '',
+        age: '',
+        gender: '',
+        password: '',
         visible: false,
         confirmLoading: false,
     }
 
     showModal = () => {
         this.setState({
+            userName: this.props.user.userName.S,
+            age: this.props.user.age.S,
+            gender: this.props.user.gender.S,
+            password: this.props.user.password.S,
             visible: true,
         });
     }
@@ -25,7 +32,7 @@ export default class UserEdit extends Component {
                 visible: false,
                 confirmLoading: false,
             });
-        }, 2000);
+        }, 1000);
     }
 
     handleCancel = () => {
@@ -35,21 +42,25 @@ export default class UserEdit extends Component {
         });
     }
 
-    handleFocusUserName = (event) => {
+    handleFocusField = (event) => {
+        const fieldName = event.target.name
         this.setState({
-            userName:''
+            [fieldName]: ''
+        })
+
+    }
+
+
+    handleFieldChange = (event) => {
+        const fieldName = event.target.name
+        this.setState({
+            [fieldName]: event.target.value
         })
     }
 
 
-    handleUserNameChange = (event) => {
-        this.setState({
-            userName: event.target.value
-        })
-    }
-
-    componentWillMount(){
-        this.setState({userName: this.props.user.userName.S})
+    shouldComponentUpdate(newProps, newState) {
+        return true;
     }
     render() {
         const {visible, confirmLoading, ModalText} = this.state;
@@ -69,7 +80,27 @@ export default class UserEdit extends Component {
                         <div className = "user-field">
                             <span className = "user-field-name">User Name</span>
                             <div className = "user-field-input">
-                                <input  value={this.state.userName} onChange={this.handleUserNameChange} onFocus={this.handleFocusUserName}/>
+                                <input name="userName"  value={this.state.userName} onChange={this.handleFieldChange} onFocus={this.handleFocusField}/>
+                            </div>
+                        </div>
+                        <div className = "user-field">
+                            <span className = "user-field-name">Age</span>
+                            <div className = "user-field-input">
+                                <input  name="age" value={this.state.age} onChange={this.handleFieldChange} onFocus={this.handleFocusField}/>
+                            </div>
+                        </div>
+
+                        <div className = "user-field">
+                            <span className = "user-field-name">Gender</span>
+                            <div className = "user-field-input">
+                                <input  name="gender" value={this.state.gender} onChange={this.handleFieldChange} onFocus={this.handleFocusField}/>
+                            </div>
+                        </div>
+
+                        <div className = "user-field">
+                            <span className = "user-field-name">Password</span>
+                            <div className = "user-field-input">
+                                <input  name="password" value={this.state.password} onChange={this.handleFieldChange} onFocus={this.handleFocusField}/>
                             </div>
                         </div>
 
