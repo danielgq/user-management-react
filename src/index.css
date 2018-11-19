@@ -1,11 +1,21 @@
 .wrapper {
-    width: 500px;
+    width: 600px;
     margin: 10px auto;
     font-size: 14px;
     background-color: #fff;
     border: 1px solid #f1f1f1;
     padding: 20px;
 }
+
+.tableWrapper {
+    width: 550px;
+    margin: 10px auto;
+    font-size: 14px;
+    background-color: whitesmoke;
+    border: 1px solid #f1f1f1;
+    padding: 20px;
+}
+
 /*input*/
 .user-input {
     background-color: #fff;
@@ -47,7 +57,7 @@
     justify-content: flex-end;
 }
 
-.user-field-button button {
+/*.user-field-button button {
     padding: 5px 10px;
     width: 80px;
     border: none;
@@ -56,11 +66,11 @@
     color: #fff;
     outline: none;
     cursor: pointer;
-}
+}*/
 
-.user-field-button button:active {
+/*.user-field-button button:active {
     background: orange;
-}
+}*/
 
 /*user list*/
 .user-list {

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Popover, Button } from 'antd';
 
 export default class UserInput extends Component{
 
@@ -12,26 +13,6 @@ export default class UserInput extends Component{
         }
     }
 
-    handleUserNameChange = (event) => {
-        this.setState({
-            userName: event.target.value
-        })
-    }
-    handlerAgeChange = (event) => {
-        this.setState({
-            age: event.target.value
-        })
-    }
-    handleGenderChange = (event) => {
-        this.setState({
-            gender: event.target.value
-        })
-    }
-    handlePasswordChange = (event) => {
-        this.setState({
-            password: event.target.value
-        })
-    }
 
     handleSubmit = () => {
         if(this.props.onSubmit){
@@ -45,36 +26,50 @@ export default class UserInput extends Component{
         })
     }
 
+    handleFieldChange = (event) => {
+        const fieldName = event.target.name
+        this.setState({
+            [fieldName]: event.target.value
+        })
+    }
+
+    content = (
+        <div>
+            <p>Add A user now!!!!</p>
+        </div>
+    );
     render(){
         return(
             <div className = "user-input">
                 <div className = "user-field">
                     <span className = "user-field-name">User Name</span>
                     <div className = "user-field-input">
-                        <input  value={this.state.userName} onChange={this.handleUserNameChange}/>
+                        <input  name="userName" value={this.state.userName} onChange={this.handleFieldChange} placeholder="Enter User Name"/>
                     </div>
                 </div>
                 <div className = "user-field">
                     <span className = "user-field-name">Age</span>
                     <div className = "user-field-input">
-                        <input value={this.state.age} onChange={this.handlerAgeChange}/>
+                        <input name="age"  value={this.state.age} onChange={this.handleFieldChange} placeholder="Enter Age"/>
                     </div>
                 </div>
                 <div className = "user-field">
                     <span className = "user-field-name">Gender</span>
                     <div className = "user-field-input">
-                        <input value={this.state.gender} onChange={this.handleGenderChange}/>
+                        <input name="gender" value={this.state.gender} onChange={this.handleFieldChange} placeholder="Enter Gender"/>
                     </div>
                 </div>
                 <div className = "user-field">
                     <span className = "user-field-name">Password</span>
                     <div className = "user-field-input">
-                        <input value={this.state.password} onChange={this.handlePasswordChange}/>
+                        <input name="password" value={this.state.password} onChange={this.handleFieldChange} placeholder="Enter Password"/>
                     </div>
                 </div>
 
                 <div className = "user-field-button">
-                    <button onClick={this.handleSubmit}>Add</button>
+                    <Popover content={this.content}>
+                    <Button type="primary" onClick={this.handleSubmit}>Add</Button>
+                    </Popover>
                 </div>
             </div>
 

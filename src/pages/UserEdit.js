@@ -23,6 +23,12 @@ export default class UserEdit extends Component {
     }
 
     handleOk = () => {
+        this.props.onEditUser({
+            userName: this.state.userName,
+            age: this.state.age,
+            gender: this.state.gender,
+            password: this.state.password,
+        })
         this.setState({
             ModalText: 'The modal will be closed after two seconds',
             confirmLoading: true,
@@ -42,14 +48,6 @@ export default class UserEdit extends Component {
         });
     }
 
-    handleFocusField = (event) => {
-        const fieldName = event.target.name
-        this.setState({
-            [fieldName]: ''
-        })
-
-    }
-
 
     handleFieldChange = (event) => {
         const fieldName = event.target.name
@@ -66,7 +64,7 @@ export default class UserEdit extends Component {
         const {visible, confirmLoading, ModalText} = this.state;
         return (
             <div>
-                <Button type="primary" onClick={this.showModal}>
+                <Button onClick={this.showModal}>
                    Edit
                 </Button>
                 <Modal title="Edit"
@@ -80,27 +78,27 @@ export default class UserEdit extends Component {
                         <div className = "user-field">
                             <span className = "user-field-name">User Name</span>
                             <div className = "user-field-input">
-                                <input name="userName"  value={this.state.userName} onChange={this.handleFieldChange} onFocus={this.handleFocusField}/>
+                                <input name="userName"  value={this.state.userName}   readOnly={true}/>
                             </div>
                         </div>
                         <div className = "user-field">
                             <span className = "user-field-name">Age</span>
                             <div className = "user-field-input">
-                                <input  name="age" value={this.state.age} onChange={this.handleFieldChange} onFocus={this.handleFocusField}/>
+                                <input  name="age" placeholder={this.state.age} onChange={this.handleFieldChange} />
                             </div>
                         </div>
 
                         <div className = "user-field">
                             <span className = "user-field-name">Gender</span>
                             <div className = "user-field-input">
-                                <input  name="gender" value={this.state.gender} onChange={this.handleFieldChange} onFocus={this.handleFocusField}/>
+                                <input  name="gender" placeholder={this.state.gender} onChange={this.handleFieldChange} />
                             </div>
                         </div>
 
                         <div className = "user-field">
                             <span className = "user-field-name">Password</span>
                             <div className = "user-field-input">
-                                <input  name="password" value={this.state.password} onChange={this.handleFieldChange} onFocus={this.handleFocusField}/>
+                                <input  name="password" placeholder ={this.state.password} onChange={this.handleFieldChange} />
                             </div>
                         </div>
 
