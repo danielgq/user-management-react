@@ -1,8 +1,14 @@
 import React, {Component} from 'react'
 import {Modal, Button} from 'antd';
 import 'antd/dist/antd.css';
+import PropTypes from 'prop-types'
 
 export default class UserEdit extends Component {
+
+    static propTypes = {
+        onEditUser: PropTypes.func
+    }
+
     state = {
         userName: '',
         age: '',

@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import UserInfo from "./UserInfo";
 import { Divider } from 'antd';
+import PropTypes from 'prop-types'
 
 export default class UserList  extends Component{
+
+    static propTypes = {
+        onDeleteUser: PropTypes.func,
+        onEditUser: PropTypes.func,
+        user: PropTypes.object
+    }
 
     static defaultProps = {
         users : []

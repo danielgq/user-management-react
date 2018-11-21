@@ -5,7 +5,6 @@ import axios from 'axios';
 import { Alert } from 'antd';
 
 export default class UserManagementManagement extends Component{
-
     constructor(){
         super()
         this.state = {
@@ -27,15 +26,15 @@ export default class UserManagementManagement extends Component{
             this.setState({users})
         }.bind(this));*/
 
-        axios.get('https://9qw4ir47zj.execute-api.ap-northeast-1.amazonaws.com/demo1/getuserlist'/*,{timeout: 1000 * 60 * 1}*/).then((result)=>{
+/*        axios.get('https://9qw4ir47zj.execute-api.ap-northeast-1.amazonaws.com/demo1/getuserlist'/!*,{timeout: 1000 * 60 * 1}*!/).then((result)=>{
             let users = result.data.Items
             this.setState({users})
         }).catch((err)=>{
             console.log('error happens !!!!!!1' + err.status);
-        })
+        })*/
 
-/*        let users = [{"userName":{"S":"Jack1"},"password":{"S":"1qazxsw2"},"gender":{"S":"male"},"age":{"S":"44"}},{"userName":{"S":"Lucy"},"password":{"S":"1qazxsw2"},"gender":{"S":"female"},"age":{"S":"18"}},{"userName":{"S":"12312"},"password":{"S":"123"},"gender":{"S":"3123"},"age":{"S":"312"}}];
-        this.setState({users})*/
+        let users = [{"userName":{"S":"Jack1"},"password":{"S":"1qazxsw2"},"gender":{"S":"male"},"age":{"S":"44"}},{"userName":{"S":"Lucy"},"password":{"S":"1qazxsw2"},"gender":{"S":"female"},"age":{"S":"18"}},{"userName":{"S":"12312"},"password":{"S":"123"},"gender":{"S":"3123"},"age":{"S":"312"}}];
+        this.setState({users})
     }
 
     saveUser = (user) => {

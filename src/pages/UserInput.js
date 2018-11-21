@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Popover, Button } from 'antd';
-
+import PropTypes from 'prop-types'
 export default class UserInput extends Component{
+
+    static propTypes = {
+        onSubmit:  PropTypes.func,
+    }
 
     constructor(){
         super()

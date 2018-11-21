@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import UserEdit from './UserEdit'
 import { Popconfirm, Button } from 'antd';
+import PropTypes from 'prop-types'
 
 export default class UserInfo extends Component{
+    static propTypes = {
+        onDeleteUser: PropTypes.func,
+        onEditUser: PropTypes.func,
+        index:PropTypes.number,
+    }
 
     handlerDeleteUser = () => {
         if(this.props.onDeleteUser){
@@ -19,6 +25,7 @@ export default class UserInfo extends Component{
             <p>Be careful before deleting it!!!!</p>
         </div>
     );
+
 
     render(){
         return(
