@@ -4,6 +4,9 @@ import UserInput from './UserInput'
 import axios from 'axios';
 import { Alert } from 'antd';
 
+axios.defaults.headers.common['Validation-Header'] = '123-abc-def-456';
+const apiGateWayPrefix = 'http://127.0.0.1:4000/demo/user/api?method=';
+
 export default class UserManagementManagement extends Component{
     constructor(){
         super()
@@ -21,20 +24,40 @@ export default class UserManagementManagement extends Component{
 
     getUserList = () => {
 
-/*        $.get('https://9qw4ir47zj.execute-api.ap-northeast-1.amazonaws.com/demo1/getuserlist', function (result) {
-            let users = result.Items
-            this.setState({users})
-        }.bind(this));*/
+        axios.post('http://127.0.0.1:4000/demo/user/api?method=getUsers').then((result)=>{
+            const status = result.status
+            if(status ===200){
+                let users = result.data.content
+                this.setState({users})
+            }else{
+                this.setState({
+                    visible:true,
+                    message : 'status code is [' + result.status + '] and the error msg is [' +  result.data.msg + ']',
+                    messageType : 'error',
+                })
+            }
 
-/*        axios.get('https://9qw4ir47zj.execute-api.ap-northeast-1.amazonaws.com/demo1/getuserlist'/!*,{timeout: 1000 * 60 * 1}*!/).then((result)=>{
+        }).catch((err)=>{
+            this.setState({
+                visible:true,
+                message : err.toString(),
+                messageType : 'error',
+            })
+            console.log('error happens !!!!!!1' + err);
+        })
+
+//call aws directly
+      /*  axios.get('https://9qw4ir47zj.execute-api.ap-northeast-1.amazonaws.com/demo1/getuserlist'/!*,{timeout: 1000 * 60 * 1}*!/).then((result)=>{
             let users = result.data.Items
             this.setState({users})
         }).catch((err)=>{
             console.log('error happens !!!!!!1' + err.status);
         })*/
 
-        let users = [{"userName":{"S":"Jack1"},"password":{"S":"1qazxsw2"},"gender":{"S":"male"},"age":{"S":"44"}},{"userName":{"S":"Lucy"},"password":{"S":"1qazxsw2"},"gender":{"S":"female"},"age":{"S":"18"}},{"userName":{"S":"12312"},"password":{"S":"123"},"gender":{"S":"3123"},"age":{"S":"312"}}];
-        this.setState({users})
+
+      //test data
+ /*       let users = [{"userName":{"S":"Jack1"},"password":{"S":"1qazxsw2"},"gender":{"S":"male"},"age":{"S":"44"}},{"userName":{"S":"Lucy"},"password":{"S":"1qazxsw2"},"gender":{"S":"female"},"age":{"S":"18"}},{"userName":{"S":"12312"},"password":{"S":"123"},"gender":{"S":"3123"},"age":{"S":"312"}}];
+        this.setState({users})*/
     }
 
     saveUser = (user) => {
@@ -44,7 +67,7 @@ export default class UserManagementManagement extends Component{
             "gender": user.gender,
             "password": user.password
         }
-        axios.post('https://9qw4ir47zj.execute-api.ap-northeast-1.amazonaws.com/demo1/adduser',params).then((result) =>{
+        axios.post(apiGateWayPrefix + 'addUser',params).then((result) =>{
             console.log('success!!!');
         }).catch((error) => {
             console.log('error!!!!' + error.toString());
@@ -56,7 +79,7 @@ export default class UserManagementManagement extends Component{
         let params = {
             "userName": userName
         }
-        axios.delete('https://9qw4ir47zj.execute-api.ap-northeast-1.amazonaws.com/demo1/deleteuser', {data: params}).then((result) =>
+        axios.post(apiGateWayPrefix + 'deleteUser', {data: params}).then((result) =>
         {
             console.log('success!!!');
         }).catch((error) => {
@@ -72,7 +95,7 @@ export default class UserManagementManagement extends Component{
             "gender": user.gender,
             "password": user.password
         }
-        axios.put('https://9qw4ir47zj.execute-api.ap-northeast-1.amazonaws.com/demo1/updateUser',params).then((result) =>{
+        axios.post(apiGateWayPrefix + 'editUser',params).then((result) =>{
             console.log('success!!!');
         }).catch((error) => {
             console.log('error!!!!' + error.toString());

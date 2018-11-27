@@ -1,7 +1,9 @@
-import AsyncCompnent from "../highOrderComponents/AsyncComponent";
+//import AsyncCompnent from "../highOrderComponents/AsyncComponent";
+import Welcome from "../pages/Welcome.js";
 
-const Welcome = AsyncCompnent(() => import("../pages/Welcome.js"));
-const UserMnagement = AsyncCompnent(() => import("../pages/UserManagement.js"));
+import UserMnagement from "../pages/UserManagement.js";
+//const Welcome = AsyncCompnent(() => import("../pages/Welcome.js"));
+//const UserMnagement = AsyncCompnent(() => import("../pages/UserManagement.js"));
 
 const ROUTES = [
     {
