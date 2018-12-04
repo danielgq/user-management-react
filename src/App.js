@@ -1,28 +1,36 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Main from './pages/Main.js'
+import Login from './pages/Login.js'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            login: false
+        }
+    }
+
+    componentDidMount() {
+        const login = sessionStorage.getItem('Access-Token');
+        this.setState({login});
+        console.log(1111111111111111111111111111111111)
+    }
+
+    setLoginInfo = (login) => {
+        this.setState({login});
+    }
+
+    render() {
+        return (
+            <div className="App">
+                {
+                    this.state.login ? <Main /> : <Router><Login  setLoginInfo={this.setLoginInfo}/></Router>
+                }
+            </div>
+        );
+    }
 }
 
 export default App;

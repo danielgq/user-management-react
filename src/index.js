@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import UserManagement from './pages/UserManagement';
 import Welcome from './pages/Welcome';
-import Main1 from './pages/Main';
-
+import Main from './pages/Main';
+import Login from './pages/Login.js'
+import App from './App'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 
 ReactDOM.render(
-    // <UserManagement />,
-     <Main1/>,
-     document.getElementById('root')
+    <App/>,
+    //<Router><Login/></Router>,
+    document.getElementById('root')
 );
 
 

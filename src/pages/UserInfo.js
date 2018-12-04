@@ -31,6 +31,7 @@ export default class UserInfo extends Component{
         return(
             <div >
                 <table className="tableWrapper">
+                    <tbody>
                     <tr>
                         <td  width="10%" >
                         <span className="user-username">{this.props.user.userName.S} </span>
@@ -53,6 +54,7 @@ export default class UserInfo extends Component{
                             </Popconfirm>
                         </td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         )

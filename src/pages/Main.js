@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import UserMenu from '../menu/UserMenu'
 import {Layout} from 'antd';
 import {ROUTES} from "../router/routes.config";
 import _ from "lodash";
+import Login from './Login.js'
 
 const routes = _.clone(ROUTES);
 
-export default class Main1 extends Component {
+export default class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,6 +20,7 @@ export default class Main1 extends Component {
         const {Header, Content, Footer} = Layout;
         return (
             <Router>
+                <Switch>
                 <Layout className="layout">
                     <Header>
                         <div className="logo"/>
@@ -33,7 +35,9 @@ export default class Main1 extends Component {
                         </div>
                     </Content>
                     <Footer style={{textAlign: 'center'}}>Created by Daniel ©2018 11.</Footer>
+
                 </Layout>
+                </Switch>
             </Router>
 
 

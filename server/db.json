@@ -1,0 +1,15 @@
+{ "user": [
+  {
+    "id": 10000,
+    "name": "daniel",
+    "age": 25,
+    "gender": "male"
+  },
+  {
+    "id": 10001,
+    "name": "lily",
+    "age": 30,
+    "gender": "female"
+  }
+]
+}
