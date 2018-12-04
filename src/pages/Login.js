@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
+
+//const IP = 'localhost'
+const IP = '54.65.96.178'
 class Login extends Component{
 
     static contextTypes = {
@@ -33,7 +36,7 @@ class Login extends Component{
         let params = {adminName, adminPassword};
         //let params = {'adminName': 'admin', 'adminPassword' : 'admin123'};
         return await new Promise((resolve, reject) => {
-            axios.post('http://127.0.0.1:4000/demo/user/api/login',params ).then((result) => {
+            axios.post('http://'+IP+':4000/demo/user/api/login',params ).then((result) => {
                 resolve(result)
             }).catch(error => {
                 reject(error)
