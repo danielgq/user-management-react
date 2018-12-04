@@ -6,7 +6,7 @@ import {Alert, Spin} from 'antd';
 import Login from "./Login";
 import {Redirect} from 'react-router-dom';
 
-const apiGateWayPrefix = 'http://127.0.0.1:4000/demo/user/api?method=';
+const apiGateWayPrefix = 'http://54.65.96.178:4000/demo/user/api?method=';
 
 export default class UserManagementManagement extends Component {
     constructor() {
@@ -52,7 +52,7 @@ export default class UserManagementManagement extends Component {
 
     async getUserList() {
         return await new Promise((resolve, reject) => {
-                axios.post('http://127.0.0.1:4000/demo/user/api?method=getUsers').then((result) => {
+                axios.post('http://54.65.96.178:4000/demo/user/api?method=getUsers').then((result) => {
                         resolve(result)
                     }
                 ).catch((error) => {
