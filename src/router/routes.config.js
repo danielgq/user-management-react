@@ -1,9 +1,6 @@
-//import AsyncCompnent from "../highOrderComponents/AsyncComponent";
 import Welcome from "../pages/Welcome.js";
-
 import UserMnagement from "../pages/UserManagement.js";
-//const Welcome = AsyncCompnent(() => import("../pages/Welcome.js"));
-//const UserMnagement = AsyncCompnent(() => import("../pages/UserManagement.js"));
+import Test from "../pages/Test.js";
 
 const ROUTES = [
     {
@@ -18,6 +15,13 @@ const ROUTES = [
         iconType: 'profile',
         text: 'User Mnagement',
         component: UserMnagement
+    }
+    , {
+        key: 'test',
+        link: '/test',
+        iconType: 'profile',
+        text: 'Test',
+        component: Test
     }
 ];
 

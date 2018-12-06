@@ -7,8 +7,8 @@ import Login from "./Login";
 import {Redirect} from 'react-router-dom';
 
 
-//const IP = 'localhost'
-const IP = '54.65.96.178'
+const IP = 'localhost'
+//const IP = '54.65.96.178'
 const apiGateWayPrefix = 'http://'+IP+':4000/demo/user/api?method=';
 
 export default class UserManagementManagement extends Component {

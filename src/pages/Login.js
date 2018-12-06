@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 
-//const IP = 'localhost'
-const IP = '54.65.96.178'
+const IP = 'localhost'
+//const IP = '54.65.96.178'
 class Login extends Component{
 
     static contextTypes = {
@@ -34,7 +34,6 @@ class Login extends Component{
     async login(adminName, adminPassword){
 
         let params = {adminName, adminPassword};
-        //let params = {'adminName': 'admin', 'adminPassword' : 'admin123'};
         return await new Promise((resolve, reject) => {
             axios.post('http://'+IP+':4000/demo/user/api/login',params ).then((result) => {
                 resolve(result)
@@ -86,7 +85,7 @@ class Login extends Component{
                 </div>
                     <br/>
                 <div className = "user-field-input">
-                    <input  name="adminPassword" value={this.state.adminPassword} onChange={this.handleFieldChange} placeholder="Enter admin password"/>
+                    <input  name="adminPassword" value={this.state.adminPassword} onChange={this.handleFieldChange} type='password' placeholder="Enter admin password"/>
                 </div>
                     <br/>
                 <Button type="primary" onClick={this.handleSubmit}>Login</Button>
