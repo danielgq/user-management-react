@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 
-const IP = 'localhost'
-//const IP = '54.65.96.178'
+//const IP = 'localhost'
+const IP = '54.65.96.178'
 class Login extends Component{
 
     static contextTypes = {
