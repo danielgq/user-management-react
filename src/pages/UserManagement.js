@@ -7,8 +7,9 @@ import Login from "./Login";
 import {Redirect} from 'react-router-dom';
 
 
-//const IP = 'localhost'
-const IP = '54.65.96.178'
+const IP = 'localhost'
+const IP1 = '54.65.96.178'
+//const IP1 = 'localhost'
 const apiGateWayPrefix = 'http://'+IP+':4000/demo/user/api?method=';
 
 export default class UserManagementManagement extends Component {
@@ -45,7 +46,7 @@ export default class UserManagementManagement extends Component {
             })
             sessionStorage.removeItem('Access-Token');
             setTimeout(() => {
-                window.location.href = "http://"+IP+":3000/welcome";
+                window.location.href = "http://"+IP1+":3000/welcome";
             }, 5000);
             console.log('123123')
             console.log('error happens !!!!!!1' + err);
@@ -129,7 +130,7 @@ export default class UserManagementManagement extends Component {
                 })
                 sessionStorage.removeItem('Access-Token');
                 setTimeout(() => {
-                    window.location.href = "http://"+IP+":3000/welcome";
+                    window.location.href = "http://"+IP1+":3000/welcome";
                 }, 5000);
                 console.log('error happens !!!!!!1' + err);
             }
@@ -160,7 +161,7 @@ export default class UserManagementManagement extends Component {
                 })
                 sessionStorage.removeItem('Access-Token');
                 setTimeout(() => {
-                    window.location.href = "http://"+IP+":3000/welcome";
+                    window.location.href = "http://"+IP1+":3000/welcome";
                 }, 5000);
                 console.log('error happens !!!!!!1' + err);
 
@@ -220,7 +221,7 @@ export default class UserManagementManagement extends Component {
             })
             sessionStorage.removeItem('Access-Token');
             setTimeout(() => {
-                window.location.href = "http://"+IP+":3000/welcome";
+                window.location.href = "http://"+IP1+":3000/welcome";
             }, 5000);
             console.log('error happens !!!!!!1' + err);
         })
