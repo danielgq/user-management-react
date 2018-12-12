@@ -6,7 +6,7 @@ export default class Welcome extends Component{
         return(
             <div>
                 <div align="center">
-                    <h1 >Welcome !!!</h1>
+                    <h1 >Welcome !</h1>
                     <br/><br/>
                     <img src={imgURL}/>
                 </div>
